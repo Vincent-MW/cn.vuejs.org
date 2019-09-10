@@ -195,7 +195,24 @@ data: {
 ``` html
 <div v-bind:style="[baseStyles, overridingStyles]"></div>
 ```
-
+```js
+<div id="div4" v-bind:style="[baseStyles, overridingStyles]">{{ msg }}</div>
+<script type="text/javascript">
+    new Vue({
+        el: "#div4",
+        data: {
+            msg: "我是数组绑定方法",
+            baseStyles: {
+                color: 'green',
+                fontSize: '30px'
+            },
+            overridingStyles: {
+                'font-weight': 'bold'
+            }
+        }
+    })
+</script>
+```
 ### 自动添加前缀
 
 当 `v-bind:style` 使用需要添加[浏览器引擎前缀](https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix)的 CSS 属性时，如 `transform`，Vue.js 会自动侦测并添加相应的前缀。
